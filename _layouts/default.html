@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | escape }}</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body class="flex-container{% if page.centered %} flex-centered{% endif %}">
+
+    <header class="flex-row">
+      <div class="inner">
+        <h1>{{ page.title | escape }}</h1>
+      </div>
+    </header>
+
+    <header class="flex-row">
+      <div class="inner">
+        <h1>{{ page.title | escape }}</h1>
+      </div>
+    </header>
+
+    <article class="flex-row flex-main">
+      <div class="inner">
+
+{{ content }}
+
+      </div>
+    </article>
+
+    <footer class="flex-row">
+      <div class="inner">
+        <p>{{ site.footer }}</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
