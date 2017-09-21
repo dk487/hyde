@@ -1,10 +1,15 @@
-<!DOCTYPE html>
+{%      assign root_prefix = ''
+%}{%    assign subfolders = page.url | split: '/' | size | minus: 2
+%}{%    for x in (1..subfolders)
+%}{%        assign root_prefix = root_prefix | append: '../'
+%}{%    endfor
+%}<!DOCTYPE html>
 <html lang="{{ site.lang }}">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title | escape }}</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{{ root_prefix }}css/main.css">
   </head>
   <body class="flex-container{% if page.centered %} flex-centered{% endif %}">
 
