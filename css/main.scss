@@ -1,0 +1,73 @@
+---
+---
+
+$content-width:     48rem;
+$gutter:            1.2rem;
+
+$form-label:        8rem;
+$form-input-sm:     16rem;
+$form-input-md:     24rem;
+$flex-row-margin:   $gutter * 2;
+$form-safe-fix:     3rem;
+
+html, body, .inner > * {
+  margin: 0;
+  padding: 0;
+}
+
+html { height: 100% }
+body { min-height: 100% }
+
+// layout
+
+.flex-row {
+  box-sizing: border-box;
+  width: 100%;
+  padding: $gutter;
+  .inner {
+    max-width: $content-width;
+    margin: 0 auto;
+  }
+  & + & { margin-top: $flex-row-margin }
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  .flex-row.flex-main { flex: 1 0 auto }
+  &.flex-centered {
+    justify-content: space-between;
+    .flex-row.flex-main { flex: 0 1 auto }
+  }
+}
+
+// forms
+
+.form-row {
+  margin: $gutter 0 0 0;
+  label {
+    input { min-width: $form-input-sm }
+    span {
+      display: inline-block;
+      width: $form-label;
+    }
+  }
+}
+
+@media (min-width: $form-label + $form-input-md + $form-safe-fix) {
+  .form-controls { padding-left: $form-label }
+  .form-row label input { width: $form-input-md }
+}
+
+// decorations
+
+header { border-bottom: medium dashed }
+footer { border-top: thin dashed }
+
+@media (min-width: $content-width + $gutter * 4) {
+  .flex-centered .flex-row.flex-main .inner {
+    margin: -$gutter auto;
+    padding: $gutter;
+    outline: thin dashed;
+  }
+}
