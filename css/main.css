@@ -20,8 +20,8 @@ body { min-height: 100% }
 .form-row label span { display: inline-block; width: 8rem }
 
 @media (min-width: 34.7rem) {
-    .form-controls { padding-left: 8rem }
-    .form-row label input { width: 24rem }
+  .form-controls { padding-left: 8rem }
+  .form-row label input { width: 24rem }
 }
 
 /* decorations */
@@ -30,9 +30,9 @@ header { border-bottom: medium dashed }
 footer { border-top: thin dashed }
 
 @media (min-width: 52.4rem) {
-    .flex-centered .flex-row.flex-main .inner {
-        margin: -1.2rem auto;
-        padding: 1.2rem;
-        outline: thin dashed;
-    }
+  .flex-centered .flex-row.flex-main .inner {
+    margin: -1.2rem auto;
+    padding: 1.2rem;
+    outline: thin dashed;
+  }
 }
