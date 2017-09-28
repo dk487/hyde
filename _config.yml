@@ -16,8 +16,9 @@ defaults:
         values:
             lang: ru
 
+url: http://example.com
 lang: en
-dir: ltr
+direction: ltr
 
 locales:
     en: English
