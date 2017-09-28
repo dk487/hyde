@@ -10,7 +10,7 @@ $form-input-md:     24rem;
 $flex-row-margin:   $gutter * 2;
 $form-safe-fix:     3rem;
 
-html, body, .inner > * {
+html, body, header .inner > *, footer .inner > * {
     margin: 0;
     padding: 0;
 }
@@ -64,23 +64,35 @@ body { min-height: 100% }
 header { border-bottom: medium dashed }
 footer { border-top: thin dashed }
 
-nav {
-    float: right;
-    ul, li {
-        margin: 0;
-        padding: 0;
-        display: inline-block;
-    }
-    li + li {
-        margin-left: 1em;
-    }
-}
-
-
 @media (min-width: $content-width + $gutter * 4) {
     .flex-centered .flex-row.flex-main .inner {
         margin: -$gutter auto;
         padding: $gutter;
         outline: thin dashed;
     }
+}
+
+// footer
+
+nav {
+    float: right;
+    ul, li {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        a { color: inherit }
+    }
+    li + li { margin: 0 0 0 $gutter }
+}
+
+html[dir=rtl] nav {
+    float: left;
+    li + li { margin: 0 $gutter 0 0 }
+}
+
+// printer version
+
+@media print {
+    nav { display: none }
+    a[href^="http"]::after { content: " (" attr(href) ")" }
 }

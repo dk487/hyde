@@ -17,6 +17,7 @@ defaults:
             lang: ru
 
 lang: en
+dir: ltr
 
 locales:
     en: English
