@@ -3,8 +3,27 @@ defaults:
         scope:
             path: ""
         values:
+            lang: en
             layout: default
+    -
+        scope:
+            path: uk
+        values:
+            lang: uk
+    -
+        scope:
+            path: ru
+        values:
+            lang: ru
 
 lang: en
 
-footer: © Dmitry K.
+locales:
+    en: English
+    uk: Українська
+    ru: Русский
+
+footer:
+    en: © Dmitry K.
+    uk: © Дмитро К.
+    ru: © Дмитрий К.

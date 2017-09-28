@@ -1,0 +1,26 @@
+{%      for mapping in site.data.map
+%}{%        for item in mapping[page.lang]
+%}{%            if item == page.path %}
+                <nav>
+                    <ul>{%
+                    for alt in mapping
+%}{%                    assign alt_path = alt[1]
+%}{%                    if alt_path != page.path
+
+%}{%                        assign posts = site.posts | where: "path", alt_path
+%}{%                        for item in posts %}
+                        <li><a href="{{ root_prefix }}{{ item.url | slice: 1, item.url.size }}">{{ site.locales[item.lang] }}</a></li>{%
+                            endfor
+
+%}{%                        assign pages = site.pages | where: "path", alt_path
+%}{%                        for item in pages %}
+                        <li><a href="{{ root_prefix }}{{ item.url | slice: 1, item.url.size }}">{{ site.locales[item.lang] }}</a></li>{%
+                            endfor
+%}{%                    endif
+%}{%                endfor
+%}
+                    </ul>
+                </nav>{%
+                endif
+%}{%        endfor
+%}{%    endfor %}

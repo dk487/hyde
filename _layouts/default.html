@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ page.title | escape }}</title>
         <link rel="stylesheet" href="{{ root_prefix }}css/main.css">
+        {% include alternate.html %}
     </head>
     <body class="flex-container{% if page.centered %} flex-centered{% endif %}">
 
@@ -29,7 +30,11 @@
 
         <footer class="flex-row">
             <div class="inner">
-                <p>{{ site.footer }}</p>
+                {% include lang_nav.html %}
+                {{ site.footer[page.lang]
+                    | default: site.footer[site.lang]
+                    | default: site.footer['en']
+                    | markdownify }}
             </div>
         </footer>
 

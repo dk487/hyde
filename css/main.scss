@@ -64,6 +64,19 @@ body { min-height: 100% }
 header { border-bottom: medium dashed }
 footer { border-top: thin dashed }
 
+nav {
+    float: right;
+    ul, li {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+    }
+    li + li {
+        margin-left: 1em;
+    }
+}
+
+
 @media (min-width: $content-width + $gutter * 4) {
     .flex-centered .flex-row.flex-main .inner {
         margin: -$gutter auto;
