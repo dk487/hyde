@@ -1,4 +1,4 @@
 -
-    en: hello.md
-    uk: uk/hello.md
-    ru: ru/hello.md
+    - hello.md
+    - uk/hello.md
+    - ru/hello.md
