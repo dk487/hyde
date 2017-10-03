@@ -1,6 +1,6 @@
 {%      assign root_prefix = ''
-%}{%    assign subfolders = page.url | split: '/' | size | minus: 2
-%}{%    for x in (1..subfolders)
+%}{%    assign root_subfolders = page.url | split: '/' | size | minus: 2
+%}{%    for x in (1..root_subfolders)
 %}{%        assign root_prefix = root_prefix | append: '../'
 %}{%    endfor
 %}<!DOCTYPE html>
