@@ -11,7 +11,7 @@ $form-input-md:     24rem;
 $flex-row-margin:   $gutter * 2;
 $form-safe-fix:     3rem;
 
-html, body, .inner > *:first-child {
+html, body, .inner > *:first-child, footer p {
     margin: 0;
     padding: 0;
 }
