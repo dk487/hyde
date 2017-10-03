@@ -6,14 +6,16 @@
 
 %}{%        for item in site.posts
 %}{%            if mapping contains item.path and item.path != page.path
-%}{%                assign item_url = item.url | slice: 1, item.url.size %}
+%}{%                assign item_url = item.url | slice: 1, item.url.size
+%}{%                assign item_url = root_prefix | append: item_url %}
         <link rel="alternate" hreflang="{{ item.lang }}" href="{{ item_url }}">{%
                 endif
 %}{%        endfor
 
 %}{%        for item in site.pages
 %}{%            if mapping contains item.path and item.path != page.path
-%}{%                assign item_url = item.url | slice: 1, item.url.size %}
+%}{%                assign item_url = item.url | slice: 1, item.url.size
+%}{%                assign item_url = root_prefix | append: item_url %}
         <link rel="alternate" hreflang="{{ item.lang }}" href="{{ item_url }}">{%
                 endif
 %}{%        endfor

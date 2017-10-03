@@ -16,7 +16,11 @@ defaults:
         values:
             lang: ru
 
+exclude: [Makefile]
+
 url: http://example.com
+baseurl: ""
+
 lang: en
 direction: ltr
 
@@ -24,6 +28,11 @@ locales:
     en: English
     uk: Українська
     ru: Русский
+
+title:
+    en: Test site
+    uk: Тестовий сайт
+    ru: Тестовый сайт
 
 footer:
     en: © Dmitry K.
