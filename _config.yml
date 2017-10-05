@@ -17,6 +17,8 @@ defaults:
             lang: ru
 
 url: http://example.com
+baseurl: "/path"
+
 lang: en
 direction: ltr
 
