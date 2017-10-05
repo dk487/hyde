@@ -2,24 +2,27 @@
 
 %}{%        unless mapping contains page.path
 %}{%            continue
-%}{%        endunless%}
+%}{%        endunless
+%}
                 <nav>
                     <ul>{%
 
             for item in site.posts
 %}{%            if mapping contains item.path and item.path != page.path
-%}{%                assign item_url = item.url | slice: 1, item.url.size %}
+%}{%                assign item_url = item.url | slice: 1, item.url.size
+%}{%                assign item_url = root_prefix | append: item_url %}
                         <li lang="{{ item.lang }}">
-                            <a href="{{ root_prefix }}{{ item_url }}">{{ site.locales[item.lang] }}</a>
+                            <a href="{{ item_url }}">{{ site.locales[item.lang] }}</a>
                         </li>{%
                 endif
 %}{%        endfor
 
 %}{%        for item in site.pages
 %}{%            if mapping contains item.path and item.path != page.path
-%}{%                assign item_url = item.url | slice: 1, item.url.size %}
+%}{%                assign item_url = item.url | slice: 1, item.url.size
+%}{%                assign item_url = root_prefix | append: item_url %}
                         <li lang="{{ item.lang }}">
-                            <a href="{{ root_prefix }}{{ item_url }}">{{ site.locales[item.lang] }}</a>
+                            <a href="{{ item_url }}">{{ site.locales[item.lang] }}</a>
                         </li>{%
                 endif
 %}{%        endfor

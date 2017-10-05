@@ -8,7 +8,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ page.title | escape }}</title>
+        <title>{{ page.title | escape }} | {{ site.title[page.lang]
+                | default: site.title[site.lang]
+                | default: site.title['en']
+                | escape }}</title>
         <link rel="stylesheet" href="{{ root_prefix }}css/main.css">
         {% include alternate.html %}
     </head>
