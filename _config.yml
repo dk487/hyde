@@ -16,7 +16,7 @@ defaults:
         values:
             lang: ru
 
-exclude: [Makefile]
+exclude: [Makefile, README.md]
 
 url: http://example.com
 baseurl: ""
