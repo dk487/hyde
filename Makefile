@@ -7,11 +7,10 @@ build:
 	jekyll build
 
 test: build
-	docker run -v $(ROOT)_site:/site 18fgsa/html-proofer /site \
+	docker run --rm -v $(ROOT)_site:/site 18fgsa/html-proofer /site \
+		--check-html \
 		--check-external-hash \
-		--check-sri \
 		--check-opengraph \
-		--check-favicon \
-		--check-html
+		--check-sri
 
 .PHONY: all build test
