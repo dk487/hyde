@@ -7,9 +7,10 @@ build:
 	jekyll build
 
 test: build
+	jekyll doctor
 	docker run --rm -v $(ROOT)_site:/site 18fgsa/html-proofer /site \
+		--disable_external \
 		--check-html \
-		--check-external-hash \
 		--check-opengraph \
 		--check-sri
 

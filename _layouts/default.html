@@ -12,6 +12,7 @@
                 | default: site.title[site.lang]
                 | default: site.title['en']
                 | escape }}</title>
+        <link rel="canonical" href="{{ site.url }}{{ page.url | remove: "index.html" | absolute_url }}" />
         <link rel="stylesheet" href="{{ root_prefix }}css/main.css">
         {% include alternate.html %}
     </head>
