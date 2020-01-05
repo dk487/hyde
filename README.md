@@ -7,8 +7,12 @@
  - Add +exerpt to pages
  - OpenGrapth, twitter:card, etc
  - i18n && RSS, like `{% include feed.xml lang=uk %}`
- - exclude README.md
  - add sample blog pages
      - blog posts index
      - link rel = prev/next
  - create theme like 'Jekyll minima' (from scratch)
+ - canonical URL
+ - full URL in sitemap
+ - change data scheme
+   - compatibility with SiteLead (title/en -> title, etc)
+   - find translations from page data
