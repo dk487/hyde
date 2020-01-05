@@ -1,22 +1,19 @@
-{%      for mapping in site.data.map
+{%      if page.ref
 
-%}{%        unless mapping contains page.path
-%}{%            continue
-%}{%        endunless
-
-%}{%        for item in site.posts
-%}{%            if mapping contains item.path and item.path != page.path
-%}{%                assign item_url = item.url | slice: 1, item.url.size
-%}{%                assign item_url = root_prefix | append: item_url %}
-        <link rel="alternate" hreflang="{{ item.lang }}" href="{{ item_url }}">{%
+%}{%        assign _list = site.posts | where: 'ref', page.ref | sort: 'lang'
+%}{%        for _item in _list
+%}{%            if _item.url != page.url
+%}{%                assign _item_url = _item.url | slice: 1, _item.url.size %}
+        <link rel="alternate" hreflang="{{ _item.lang }}" href="{{ root_prefix }}{{ _item_url }}">{%
                 endif
 %}{%        endfor
 
-%}{%        for item in site.pages
-%}{%            if mapping contains item.path and item.path != page.path
-%}{%                assign item_url = item.url | slice: 1, item.url.size
-%}{%                assign item_url = root_prefix | append: item_url %}
-        <link rel="alternate" hreflang="{{ item.lang }}" href="{{ item_url }}">{%
+%}{%        assign _list = site.pages | where: 'ref', page.ref | sort: 'lang'
+%}{%        for _item in _list
+%}{%            if _item.url != page.url
+%}{%                assign _item_url = _item.url | slice: 1, _item.url.size %}
+        <link rel="alternate" hreflang="{{ _item.lang }}" href="{{ root_prefix }}{{ _item_url }}">{%
                 endif
 %}{%        endfor
-%}{%    endfor %}
+%}{%    endif
+%}

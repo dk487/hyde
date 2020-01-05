@@ -24,7 +24,7 @@ baseurl: ""
 lang: en
 direction: ltr
 
-locales:
+languages:
     en: English
     uk: Українська
     ru: Русский

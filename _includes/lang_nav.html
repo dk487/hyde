@@ -1,32 +1,26 @@
-{%      for mapping in site.data.map
-
-%}{%        unless mapping contains page.path
-%}{%            continue
-%}{%        endunless
-%}
+{%      if page.ref %}
                 <nav>
                     <ul>{%
 
-            for item in site.posts
-%}{%            if mapping contains item.path and item.path != page.path
-%}{%                assign item_url = item.url | slice: 1, item.url.size
-%}{%                assign item_url = root_prefix | append: item_url %}
-                        <li lang="{{ item.lang }}">
-                            <a href="{{ item_url }}">{{ site.locales[item.lang] }}</a>
+            assign _list = site.posts | where: 'ref', page.ref | sort: 'lang'
+%}{%        for _item in _list
+%}{%            if _item.url != page.url
+%}{%                assign _item_url = _item.url | slice: 1, _item.url.size %}
+                        <li lang="{{ _item.lang }}">
+                            <a href="{{ root_prefix }}{{ _item_url }}">{{ site.languages[_item.lang] }}</a>
                         </li>{%
                 endif
 %}{%        endfor
 
-%}{%        for item in site.pages
-%}{%            if mapping contains item.path and item.path != page.path
-%}{%                assign item_url = item.url | slice: 1, item.url.size
-%}{%                assign item_url = root_prefix | append: item_url %}
-                        <li lang="{{ item.lang }}">
-                            <a href="{{ item_url }}">{{ site.locales[item.lang] }}</a>
+%}{%        assign _list = site.pages | where: 'ref', page.ref | sort: 'lang'
+%}{%        for _item in _list
+%}{%            if _item.url != page.url
+%}{%                assign _item_url = _item.url | slice: 1, _item.url.size %}
+                        <li lang="{{ _item.lang }}">
+                            <a href="{{ root_prefix }}{{ _item_url }}">{{ site.languages[_item.lang] }}</a>
                         </li>{%
                 endif
-%}{%        endfor
-%}
+%}{%        endfor %}
                     </ul>
                 </nav>{%
-        endfor %}
+        endif %}
