@@ -7,7 +7,7 @@
 %}{%      if _item.url != page.url
 %}{%        assign _item_url = _item.url | slice: 1, _item.url.size %}
                 <li lang="{{ _item.lang }}">
-                  <a href="{{ root_prefix }}{{ _item_url }}">{{ site.languages[_item.lang] }}</a>
+                  <a href="{{ root_prefix }}{{ _item_url }}">{{ site.i18n_lang_names[_item.lang] }}</a>
                 </li>{%
           endif
 %}{%    endfor
@@ -17,10 +17,10 @@
 %}{%      if _item.url != page.url
 %}{%        assign _item_url = _item.url | slice: 1, _item.url.size %}
                 <li lang="{{ _item.lang }}">
-                  <a href="{{ root_prefix }}{{ _item_url }}">{{ site.languages[_item.lang] }}</a>
+                  <a href="{{ root_prefix }}{{ _item_url }}">{{ site.i18n_lang_names[_item.lang] }}</a>
                 </li>{%
           endif
 %}{%    endfor %}
-              </ul>
-            </nav>{%
+            </ul>
+          </nav>{%
         endif %}

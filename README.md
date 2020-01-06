@@ -14,5 +14,5 @@
  - ~~canonical URL~~
  - ~~full URL in sitemap~~
  - change data scheme
-   - compatibility with SiteLeaf (title/en -> title, etc)
+   - compatibility with SiteLeaf (~~title/en -> title~~, etc)
    - find translations from page data
