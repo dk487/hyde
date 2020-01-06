@@ -1,6 +1,6 @@
       <footer class="flex-row">
         <div class="inner">
           {% include page_footer_lang_nav.html %}
-          {{ site.i18n_footer[page.lang] | default: site.footer | markdownify }}
+          {{ site.i18n_footer[page.lang] | 'FIXME' | markdownify }}
         </div>
       </footer>

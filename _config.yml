@@ -29,9 +29,8 @@ url: http://example.com
 baseurl: ''
 lang: en
 direction: ltr
-footer: "© Dmitry K."
 i18n_title:
-  en: 
+  en: Test site
   uk: Тестовий сайт
   ru: Тестовый сайт
 i18n_lang_names:
@@ -39,6 +38,7 @@ i18n_lang_names:
   uk: Українська
   ru: Русский
 i18n_footer:
-  en: 
+  en: "© Dmytro K."
+  la: "© Dmytro K."
   uk: "© Дмитро К."
   ru: "© Дмитрий К."
