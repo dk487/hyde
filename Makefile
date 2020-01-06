@@ -1,9 +1,8 @@
 
 ROOT := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 
-all: build test
-
 build:
+	#docker run --rm -it --volume="$(ROOT):/srv/jekyll" jekyll/jekyll:3.8 jekyll build
 	jekyll build
 
 test: build
@@ -14,4 +13,4 @@ test: build
 		--check-opengraph \
 		--check-sri
 
-.PHONY: all build test
+.PHONY: build test

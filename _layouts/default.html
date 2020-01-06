@@ -1,49 +1,25 @@
-{%      assign root_prefix = ''
-%}{%    assign root_subfolders = page.url | split: '/' | size | minus: 2
-%}{%    for x in (1..root_subfolders)
-%}{%        assign root_prefix = root_prefix | append: '../'
-%}{%    endfor
+{%    assign root_prefix = ''
+%}{%  assign root_subfolders = page.url | split: '/' | size | minus: 2
+%}{%  for x in (1..root_subfolders)
+%}{%    assign root_prefix = root_prefix | append: '../'
+%}{%  endfor
 %}<!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}" dir="{{ page.direction | default: site.direction | default: 'ltr' }}">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ page.title | escape }} | {{ site.title[page.lang]
-                | default: site.title[site.lang]
-                | default: site.title['en']
-                | escape }}</title>
-        <link rel="canonical" href="{{ site.url }}{{ page.url | remove: "index.html" | absolute_url }}" />
-        <link rel="stylesheet" href="{{ root_prefix }}css/main.css">
-        {% include alternate.html %}
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | escape }} | {{ site.title[page.lang]
+            | default: site.title[site.lang]
+            | default: site.title['en']
+            | escape }}</title>
+    <link rel="canonical" href="{{ site.url }}{{ page.url | remove: "index.html" | absolute_url }}" />
+    <link rel="stylesheet" href="{{ root_prefix }}css/main.css">
+    {% include alt_lang.html %}
+  </head>
 
-    <body class="flex-container{% if page.centered %} flex-centered{% endif %}">
-
-        <header class="flex-row">
-            <div class="inner">
-                <h1>{{ page.title | escape }}</h1>
-            </div>
-        </header>
-
-        <article class="flex-row flex-main">
-            <div class="inner">
-
+  <body{% if page.css_classes %} class="{{ page.css_classes | join: ' ' }}"{% endif %}>
 {{ content }}
-
-            </div>
-        </article>
-
-        <footer class="flex-row">
-            <div class="inner">
-                {% include lang_nav.html %}
-                {{ site.footer[page.lang]
-                    | default: site.footer[site.lang]
-                    | default: site.footer['en']
-                    | markdownify }}
-            </div>
-        </footer>
-
-    </body>
+  </body>
 
 </html>

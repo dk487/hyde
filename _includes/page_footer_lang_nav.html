@@ -1,0 +1,26 @@
+{%    if page.ref %}
+          <nav>
+            <ul>{%
+
+        assign _list = site.posts | where: 'ref', page.ref | sort: 'lang'
+%}{%    for _item in _list
+%}{%      if _item.url != page.url
+%}{%        assign _item_url = _item.url | slice: 1, _item.url.size %}
+                <li lang="{{ _item.lang }}">
+                  <a href="{{ root_prefix }}{{ _item_url }}">{{ site.languages[_item.lang] }}</a>
+                </li>{%
+          endif
+%}{%    endfor
+
+%}{%    assign _list = site.pages | where: 'ref', page.ref | sort: 'lang'
+%}{%    for _item in _list
+%}{%      if _item.url != page.url
+%}{%        assign _item_url = _item.url | slice: 1, _item.url.size %}
+                <li lang="{{ _item.lang }}">
+                  <a href="{{ root_prefix }}{{ _item_url }}">{{ site.languages[_item.lang] }}</a>
+                </li>{%
+          endif
+%}{%    endfor %}
+              </ul>
+            </nav>{%
+        endif %}

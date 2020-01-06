@@ -1,0 +1,9 @@
+      <footer class="flex-row">
+        <div class="inner">
+          {% include page_footer_lang_nav.html %}
+          {{ site.footer[page.lang]
+            | default: site.footer[site.lang]
+            | default: site.footer['en']
+            | markdownify }}
+        </div>
+      </footer>

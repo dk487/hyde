@@ -4,7 +4,7 @@ defaults:
             path: ""
         values:
             lang: en
-            layout: default
+            layout: page
     -
         scope:
             path: uk
