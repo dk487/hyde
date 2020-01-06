@@ -1,6 +1,11 @@
 ---
 layout: default
 ---
+{%    assign root_prefix = ''
+%}{%  assign root_subfolders = page.url | split: '/' | size | minus: 2
+%}{%  for x in (1..root_subfolders)
+%}{%    assign root_prefix = root_prefix | append: '../'
+%}{%  endfor %}
 
     <div class="flex-container" itemscope itemtype="http://schema.org/BlogPosting">
 {% include page_header.html %}

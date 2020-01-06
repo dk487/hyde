@@ -1,6 +1,7 @@
 ---
 title: Test site
 timezone: Europe/Kiev
+
 collections:
   posts:
     title: Posts
@@ -8,35 +9,44 @@ collections:
   uploads:
     title: Uploads
     output: true
+
 defaults:
-- scope:
-    path: ''
-  values:
-    lang: en
-    layout: page
-- scope:
-    path: uk
-  values:
-    lang: uk
-- scope:
-    path: ru
-  values:
-    lang: ru
-exclude:
-- Makefile
-- README.md
+  - scope:
+      path: ''
+    values:
+      lang: en
+      layout: page
+  - scope:
+      path: ''
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: uk
+    values:
+      lang: uk
+  - scope:
+      path: ru
+    values:
+      lang: ru
+
+exclude: [Makefile, README.md]
+
 url: http://example.com
 baseurl: ''
 lang: en
 direction: ltr
+
 i18n_title:
   en: Test site
   uk: Тестовий сайт
   ru: Тестовый сайт
+
 i18n_lang_names:
   en: English
   uk: Українська
   ru: Русский
+
 i18n_footer:
   en: "© Dmytro K."
   la: "© Dmytro K."
